@@ -3,7 +3,9 @@ const joinBtn =  document.querySelector('.join');
 const layout =  document.querySelector('.layout-selector');
 const addBtn =  document.querySelector('.add');
 const removeBtn =  document.querySelector('.remove');
+const removeTOCBtn =  document.querySelector('.remove_toc');
 const saveBtn =  document.querySelector('.save');
+const reloadBtn =  document.querySelector('.reload');
 const input = document.querySelector('#input');
 const output = document.querySelector('#output');
 const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -16,9 +18,9 @@ const join = () => {
     const replaceTxt = text.replace(/[\n\t\r\s]+/g, delimiter);
     //if the end of replacetxt matches the delimiter remove the last character
     if (replaceTxt.endsWith(delimiter)) {
-        output.querySelector('textarea').innerHTML = replaceTxt.slice(0, -1); 
+        output.querySelector('textarea').value = replaceTxt.slice(0, -1); 
     } else {
-        output.querySelector('textarea').innerHTML = replaceTxt;
+        output.querySelector('textarea').value = replaceTxt;
     } 
 }
 // run when layout is changed
@@ -30,11 +32,11 @@ const changeLayout = () => {
 // run when add href is clicked
 const addAnchors = () => {
     const returnURL = (url) => '<a href="' + url + '">'+ '</a>';
-    output.querySelector('textarea').innerHTML = input.querySelector('textarea').value.replace(urlRegex, returnURL);
+    output.querySelector('textarea').value = input.querySelector('textarea').value.replace(urlRegex, returnURL);
 }
 // run when remove href is clicked
 const removeAnchors = () => { 
-    output.querySelector('textarea').innerHTML = input.querySelector('textarea').value.replace(/<a\s+href\="/g, '').replace(/">/g, '').replace(/<\/a>/g, '');
+    output.querySelector('textarea').value = input.querySelector('textarea').value.replace(/<a\s+href\="/g, '').replace(/">/g, '').replace(/<\/a>/g, '');
 }
 // run when save output is clicked
 const saveOutput = () => { 
@@ -51,9 +53,19 @@ const saveOutput = () => {
     document.body.removeChild(anchor);
 }
 
+const removeTOC = () => {
+    const returnURL = (url) => {
+       const newURL = decodeURIComponent(url.split('&click=')[1]);
+       return (/{{/g.test(newURL) || /}}/g.test(newURL)) ? newURL.replace(/{{/g,'').replace(/}}/g,'') : newURL;
+    }
+    output.querySelector('textarea').value = input.querySelector('textarea').value.replace(/https:\/\/www.medtargetsystem.com\/toc.+?(?=")/g, returnURL);
+}
+
 //event listeners
-layout.addEventListener('change', changeLayout);
 joinBtn.addEventListener('click', join);
+layout.addEventListener('change', changeLayout);
 addBtn.addEventListener('click', addAnchors);
 removeBtn.addEventListener('click', removeAnchors);
+removeTOCBtn.addEventListener('click', removeTOC);
 saveBtn.addEventListener('click', saveOutput);
+reloadBtn.addEventListener('click', () => location.reload());
