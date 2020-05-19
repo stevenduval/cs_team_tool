@@ -51,8 +51,8 @@ const saveOutput = () => {
 }
 
 //event listeners
-joinBtn.addEventListener('click', join);
 layout.addEventListener('change', changeLayout);
+joinBtn.addEventListener('click', join);
 addBtn.addEventListener('click', addAnchors);
 removeBtn.addEventListener('click', removeAnchors);
 saveBtn.addEventListener('click', saveOutput);
