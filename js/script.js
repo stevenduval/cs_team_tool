@@ -61,9 +61,16 @@ const removeTOC = () => {
     output.querySelector('textarea').value = input.querySelector('textarea').value.replace(/https:\/\/www.medtargetsystem.com\/toc.+?(?=")/g, returnURL);
 }
 
+const characterCount = () => {
+    const inputLength = input.querySelector('textarea').value.length;
+    const characterCountSpan = input.querySelectorAll('span')[1];
+    characterCountSpan.innerText = (inputLength > 0) ? `Character Count : ${inputLength}` : '';
+}
+
 //event listeners
-joinBtn.addEventListener('click', join);
 layout.addEventListener('change', changeLayout);
+input.querySelector('textarea').addEventListener('keyup', characterCount);
+joinBtn.addEventListener('click', join);
 addBtn.addEventListener('click', addAnchors);
 removeBtn.addEventListener('click', removeAnchors);
 removeTOCBtn.addEventListener('click', removeTOC);
