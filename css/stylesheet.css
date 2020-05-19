@@ -13,10 +13,12 @@
 
 
 /* styling for chosen layout */
-.input-stacked, .input-sidebyside {
+.input-stacked, .input-sidebyside, 
+.output-stacked, .output-sidebyside{
     margin: 2vh 0;
 }
-.input-stacked span, .output-stacked span {
+.input-stacked .heading, .output-stacked .heading,
+.input-sidebyside .heading, .output-sidebyside .heading{
     display: block;
     margin-bottom: 2vh;
     background-color: #ccc;
@@ -27,17 +29,17 @@
     resize: none;
 }
 
-.input-sidebyside span, .output-sidebyside span {
-    display: block;
-    margin-bottom: 2vh;
-    background-color: #ccc;
-}
-
-.input-sidebyside, .input-sidebyside textarea, .output-sidebyside, .output-sidebyside textarea  {
+.input-sidebyside, .output-sidebyside  {
     width: 42vw;
     height: 80vh;
     display: inline-block;
+    vertical-align: top;
     resize: none;
+}
+
+.input-sidebyside textarea, .output-sidebyside textarea {
+    height: 71vh;
+    width: 42vw;
 }
 
 .output-sidebyside {
