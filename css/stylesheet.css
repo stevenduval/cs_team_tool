@@ -1,0 +1,50 @@
+#container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.buttons {
+    text-align: right;
+    margin: 2vh 12vw 0 0;
+}
+
+
+/* styling for chosen layout */
+.input-stacked, .input-sidebyside {
+    margin: 2vh 0;
+}
+.input-stacked span, .output-stacked span {
+    display: block;
+    margin-bottom: 2vh;
+    background-color: #ccc;
+}
+.input-stacked textarea, .output-stacked textarea {
+    width: 75vw;
+    height: 40vh;
+    resize: none;
+}
+
+.input-sidebyside span, .output-sidebyside span {
+    display: block;
+    margin-bottom: 2vh;
+    background-color: #ccc;
+}
+
+.input-sidebyside, .input-sidebyside textarea, .output-sidebyside, .output-sidebyside textarea  {
+    width: 42vw;
+    height: 80vh;
+    display: inline-block;
+    resize: none;
+}
+
+.output-sidebyside {
+    margin-left: .5vw;
+}
+
+.left, .right {
+    display: inline-block;
+    width: 45vw;
+}

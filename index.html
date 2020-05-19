@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>CS Team Tool</title>
+        <link href="css/stylesheet.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    </head> 
+    <body>
+        <div id ="container">
+            <div class="left">
+                    <input name='delimiter' id='delimiter' value=";" size="3" style="text-align:center; font-weight:bold;">
+                    <button class="join">JOIN LINES</button>
+                    <button class="add">ADD HREF</button>
+                    <button class="remove">REMOVE HREF</button>
+                    <button class="save">SAVE OUTPUT</button>
+            </div>
+            <div class="right">
+                <label>LAYOUT: </label>
+                <select class="layout-selector">
+                    <option>SIDE BY SIDE</option>
+                    <option>STACKED</option>
+                </select>    
+            </div>
+            <div id="input" class="input-sidebyside">
+                <span>INPUT:</span>
+                <textarea></textarea>
+            </div>
+            <div id="output" class="output-sidebyside">
+                <span>OUTPUT:</span>
+                <textarea></textarea>
+            </div>
+        </div>
+        <script src="js/script.js"></script>    
+    </body>
+</html>
