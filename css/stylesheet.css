@@ -7,8 +7,7 @@
 
 
 button {
-    
-    margin-bottom: 4px; 
+    font-size: 12px;
 }
 
 
@@ -43,5 +42,5 @@ button {
 
 .left, .right {
     display: inline-block;
-    width: 45vw;
+    width: 42vw;
 }
