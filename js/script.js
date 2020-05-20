@@ -43,7 +43,7 @@ const saveOutput = () => {
     const text = output.querySelector("textarea").value.replace(/\n/g, "\r\n"); // To retain the Line breaks.
     const blob = new Blob([text], { type: "text/plain"});
     const anchor = document.createElement("a");
-    const date = new Date().toJSON().slice(0,10).split('-').join('/');
+    const date = new Date().toLocaleString('en-gb').split(",")[0].split("/").reverse().join("_");
     anchor.download = `ecs_team_tool_output_${date}.txt`;
     anchor.href = window.URL.createObjectURL(blob);
     anchor.target ="_blank";
