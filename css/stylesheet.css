@@ -13,8 +13,8 @@
 
 
 /* styling for chosen layout */
-.input-stacked, .input-sidebyside, 
-.output-stacked, .output-sidebyside{
+.input-stacked, .input-sidebyside,
+.output-stacked, .output-sidebyside {
     margin: 2vh 0;
 }
 .input-stacked .heading, .output-stacked .heading,
@@ -29,17 +29,12 @@
     resize: none;
 }
 
-.input-sidebyside, .output-sidebyside  {
+.input-sidebyside, .input-sidebyside textarea, .output-sidebyside, .output-sidebyside textarea  {
     width: 42vw;
     height: 80vh;
     display: inline-block;
     vertical-align: top;
     resize: none;
-}
-
-.input-sidebyside textarea, .output-sidebyside textarea {
-    height: 71vh;
-    width: 42vw;
 }
 
 .output-sidebyside {
