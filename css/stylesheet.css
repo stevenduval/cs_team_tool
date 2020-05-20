@@ -6,9 +6,9 @@
 }
 
 
-.buttons {
-    text-align: right;
-    margin: 2vh 12vw 0 0;
+button {
+    
+    margin-bottom: 4px; 
 }
 
 
