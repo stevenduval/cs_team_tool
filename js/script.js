@@ -75,4 +75,4 @@ addBtn.addEventListener('click', addAnchors);
 removeBtn.addEventListener('click', removeAnchors);
 removeTOCBtn.addEventListener('click', removeTOC);
 saveBtn.addEventListener('click', saveOutput);
-reloadBtn.addEventListener('click', () => location.reload());
+reloadBtn.addEventListener('click', () => location.reload(true));
