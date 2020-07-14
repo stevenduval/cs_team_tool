@@ -57,9 +57,16 @@ const saveOutput = () => {
 // run when remove toc is clicked
 const removeTOC = () => {
     const returnURL = (url) => {
-        url = (/{{/g.test(url) || /}}/g.test(url)) ? url.replace(/{{%%/g,'{{~~').replace(/%%}}/g,'~~}}') : url;
+        url = (/{{%%/g.test(url) || /%%}}/g.test(url)) ? url.replace(/{{%%/g,'{{~~').replace(/%%}}/g,'~~}}') : url;
+        console.log(url);
         const newURL = decodeURIComponent(url.split('&click=')[1]);
-        return (/{{~~/g.test(newURL) || /~~}}/g.test(newURL) || /{{$/g.test(newURL) || /$}}/g.test(newURL)) ? newURL.replace(/{{~~/g,'%%').replace(/~~}}/g,'%%').replace(/{{$/g,'$').replace(/$}}/g,'$') : newURL;
+        if (/{{~~/g.test(newURL) || /~~}}/g.test(newURL)) {
+            return newURL.replace(/{{~~/g,'%%').replace(/~~}}/g,'%%');
+        } else if (/{{\$/g.test(newURL) || /\$}}/g.test(newURL)) {
+            return newURL.replace(/{{\$/g,'$').replace(/\$}}/g,'$')
+        } else {
+            return newURL;
+        }
     }
     output.querySelector('textarea').value = input.querySelector('textarea').value.replace(/https:\/\/www.medtargetsystem.com\/toc.+?(?=")/g, returnURL);
 }
