@@ -59,7 +59,7 @@ const removeTOC = () => {
     const returnURL = (url) => {
         url = (/{{/g.test(url) || /}}/g.test(url)) ? url.replace(/{{%%/g,'{{~~').replace(/%%}}/g,'~~}}') : url;
         const newURL = decodeURIComponent(url.split('&click=')[1]);
-        return (/{{~~/g.test(newURL) || /~~}}/g.test(newURL)) ? newURL.replace(/{{~~/g,'%%').replace(/~~}}/g,'%%') : newURL;
+        return (/{{~~/g.test(newURL) || /~~}}/g.test(newURL) || /{{$/g.test(newURL) || /$}}/g.test(newURL)) ? newURL.replace(/{{~~/g,'%%').replace(/~~}}/g,'%%').replace(/{{$/g,'$').replace(/$}}/g,'$') : newURL;
     }
     output.querySelector('textarea').value = input.querySelector('textarea').value.replace(/https:\/\/www.medtargetsystem.com\/toc.+?(?=")/g, returnURL);
 }
