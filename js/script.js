@@ -58,7 +58,6 @@ const saveOutput = () => {
 const removeTOC = () => {
     const returnURL = (url) => {
         url = (/{{%%/g.test(url) || /%%}}/g.test(url)) ? url.replace(/{{%%/g,'{{~~').replace(/%%}}/g,'~~}}') : url;
-        console.log(url);
         const newURL = decodeURIComponent(url.split('&click=')[1]);
         if (/{{~~/g.test(newURL) || /~~}}/g.test(newURL)) {
             return newURL.replace(/{{~~/g,'%%').replace(/~~}}/g,'%%');
